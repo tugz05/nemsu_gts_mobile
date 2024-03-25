@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:nemsu_gts/components/Container/CustomWebView.dart';
 
 class CheckBoxwithLabel extends StatefulWidget {
   final bool initialValue;
@@ -56,10 +57,16 @@ class _CheckBoxButtonState extends State<CheckBoxwithLabel> {
                     decoration: TextDecoration.underline,
                   ),
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      // Handle the privacy policy link tap
-                      print('Privacy Policy tapped');
-                    },
+  ..onTap = () {
+    // Handle the privacy policy link tap
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return PopUpWebView(urlText: "https://gtsnemsu.online/privacy-policy");
+            },
+          );
+        },
+
                 ),
                 TextSpan(text: ' and the '),
                 TextSpan(
@@ -71,9 +78,15 @@ class _CheckBoxButtonState extends State<CheckBoxwithLabel> {
                   ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
-                      // Handle the terms and conditions link tap
-                      print('Terms and Conditions tapped');
+                      // Handle the privacy policy link tap
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return PopUpWebView(urlText: "https://gtsnemsu.online/terms-and-conditions");
+                        },
+                      );
                     },
+
                 ),
                 TextSpan(text: '.'),
               ],
