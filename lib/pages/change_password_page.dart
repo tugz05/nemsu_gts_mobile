@@ -7,8 +7,8 @@ import 'package:nemsu_gts/components/Container/EntryWithLabel.dart';
 import 'package:nemsu_gts/pages/sign_in.dart';
 import 'package:nemsu_gts/pages/verification_page.dart';
 
-class PasswordRecovery extends StatelessWidget {
-  const PasswordRecovery({super.key});
+class ChangePasswordPage extends StatelessWidget {
+  const ChangePasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class PasswordRecovery extends StatelessWidget {
                   ),
                   SizedBox(height: 5),
                   Text(
-                    'Forgot Password',
+                    'New Password',
                     style: GoogleFonts.inter(
                       fontWeight: FontWeight.w800,
                       fontSize: 24,
@@ -34,7 +34,7 @@ class PasswordRecovery extends StatelessWidget {
                   ),
                   SizedBox(height: 30),
                   Text(
-                    'Enter your registered email or phone and we’ll send your verification code.',
+                    'Enter your new password ',
                     style: GoogleFonts.inter(
                       fontWeight: FontWeight.w500,
                       fontSize: 16,
@@ -42,14 +42,17 @@ class PasswordRecovery extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  EntryWithLabel( labelText:"", hintText:  "Enter email or phone", 
+                  EntryWithLabel( labelText:"New Password", hintText:  "Enter new password", 
                     borderColor: const Color.fromRGBO(62, 68, 145, 0.25),
-                    textAlign: TextAlign.center,),
+                    ),
+                  EntryWithLabel( labelText:"Confirm new password", hintText:  "Confirm new password", 
+                    borderColor: const Color.fromRGBO(62, 68, 145, 0.25),
+                    ),
                   SizedBox(height: 20,),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      TButton(buttonText: "SEND VERIFICATION CODE", route: () => SendVerificationPage(), textColor: Colors.white,),
+                      TButton(buttonText: "CHANGE MY PASSWORD", route: () => SignInPage(), textColor: const Color.fromRGBO(255, 255, 255, 1),),
                       SizedBox(height: 200,),
                       TTextButton(textLabel: "Go back to sign in page", route: () => const SignInPage())
                     ],

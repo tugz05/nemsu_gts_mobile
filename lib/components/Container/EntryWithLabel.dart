@@ -5,14 +5,16 @@ class EntryWithLabel extends StatefulWidget {
   final String hintText;
   final Color borderColor;
   final bool isPassword;
-  final String labelText;
+  final String? labelText;
+  final TextAlign textAlign;
 
   const EntryWithLabel({
     Key? key,
-    required this.labelText,
+    this.labelText,
     required this.hintText,
     required this.borderColor,
     this.isPassword = false,
+    this.textAlign = TextAlign.left,
   }) : super(key: key);
 
   @override
@@ -38,7 +40,7 @@ class _EntryWithLabelState extends State<EntryWithLabel> {
           Row(
             children: [
               Text(
-                widget.labelText,
+                widget.labelText.toString(),
                 style: GoogleFonts.inter(
                   fontWeight: FontWeight.w400,
                   fontSize: 12,
@@ -49,6 +51,7 @@ class _EntryWithLabelState extends State<EntryWithLabel> {
           ),
           TextField(
             obscureText: _obscureText,
+            textAlign: widget.textAlign,
             decoration: InputDecoration(
               hintText: widget.hintText,
               hintStyle: GoogleFonts.inter(
