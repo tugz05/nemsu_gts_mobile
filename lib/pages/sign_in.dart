@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:nemsu_gts/components/Clickable/TButton.dart';
 import 'package:nemsu_gts/components/Clickable/TTextButton.dart';
 import 'package:nemsu_gts/components/Container/EntryWithLabel.dart';
+import 'package:nemsu_gts/pages/Dashboard/my_dashboard.dart';
 import 'package:nemsu_gts/pages/password_recovery.dart';
 import 'package:nemsu_gts/pages/sign_up.dart';
 
@@ -72,7 +73,7 @@ class SignInPage extends StatelessWidget {
                 ),
                 SizedBox(height: 30),
                 TButton(
-                  route: () => SignInPage(), // Change this to the correct route
+                  route: () => const MyDashboard(), // Change this to the correct route
                   textColor: Colors.white,
                   buttonText: 'SIGN IN',
                 ),
