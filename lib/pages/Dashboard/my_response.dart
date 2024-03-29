@@ -8,8 +8,6 @@ class MyResponse extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: TMyAppBar(),
-      drawer: TMyDrawer(),
       body: Center(
         child: Text(
           'My Response',

@@ -12,10 +12,9 @@ class MyLandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Column(
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             CustomClipPath(),
@@ -36,46 +35,52 @@ class MyLandingPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextButton(onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return PopUpWebView(urlText: "https://gtsnemsu.online/about",);
-                },
-            );
-                }, 
-                  child: Text('About',
-                  style: GoogleFonts.inter(
-                    color: Color.fromRGBO(13, 110, 253, 1),
-                    fontSize: 15,
-                    fontWeight: FontWeight.normal,
-                  ),)
+                TextButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return PopUpWebView(urlText: "https://gtsnemsu.online/about",);
+                      },
+                    );
+                  }, 
+                  child: Text(
+                    'About',
+                    style: GoogleFonts.inter(
+                      color: Color.fromRGBO(13, 110, 253, 1),
+                      fontSize: 15,
+                      fontWeight: FontWeight.normal,
+                    ),
                   ),
-                  Text('|',
+                ),
+                Text(
+                  '|',
                   style: GoogleFonts.inter(
                     color: Color.fromRGBO(13, 110, 253, 1),
                     fontSize: 15,
                     fontWeight: FontWeight.normal,
-                  ),),
-                TextButton(onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return PopUpWebView(urlText: "https://gtsnemsu.online/privacy-policy",);
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return PopUpWebView(urlText: "https://gtsnemsu.online/privacy-policy",);
+                      },
+                    );
                   },
-                 );
-                },
-                  child: Text('Privacy Policy',
-                  style: GoogleFonts.inter(
-                    color: Color.fromRGBO(13, 110, 253, 1),
-                    fontSize: 15,
-                    fontWeight: FontWeight.normal,
-                  ),)
+                  child: Text(
+                    'Privacy Policy',
+                    style: GoogleFonts.inter(
+                      color: Color.fromRGBO(13, 110, 253, 1),
+                      fontSize: 15,
+                      fontWeight: FontWeight.normal,
+                    ),
                   ),
-                  
+                ),
               ],
             )
-            
           ],
         ),
       ),

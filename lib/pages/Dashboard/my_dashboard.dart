@@ -1,57 +1,35 @@
+// MyDashboard.dart
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:nemsu_gts/components/Container/Dashboard%20Container/drawer_components.dart';
-import 'package:nemsu_gts/components/Container/Dashboard%20Container/drawer_header.dart';
+import 'components/appbar.dart';
+import 'components/drawer.dart';
+import 'my_response.dart';
 
-class MyDashboard extends StatelessWidget {
-  const MyDashboard({Key? key});
+
+class MyDashboard extends StatefulWidget {
+  const MyDashboard({Key? key}) : super(key: key);
+
+  @override
+  _MyDashboardState createState() => _MyDashboardState();
+}
+
+class _MyDashboardState extends State<MyDashboard> {
+  Widget _currentPage = MyResponse();
+
+  void _onMenuItemSelected(Widget page) {
+    setState(() {
+      _currentPage = page;
+    });
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(13, 110, 253, 1),
-        iconTheme: IconThemeData(color: Colors.white), // Change icon color here
+      appBar: TMyAppBar(),
+      drawer: TMyDrawer(
+        onMenuItemSelected: _onMenuItemSelected,
       ),
-      drawer: Drawer(
-        child: Container(
-            color: const Color.fromRGBO(13, 110, 253, 1),
-            child: ListView(
-              children:  [
-                DrawerHeader(
-                  decoration: BoxDecoration(
-                  color: Color.fromRGBO(13, 110, 253, 1),
-                  border: Border.all(color: Color.fromRGBO(13, 110, 253, 1))
-                ),
-                  child: TDrawerHeader(),
-                      
-                  ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
-                  child: Column(
-                    children: [
-                      TDrawerComponents(
-                        menuTitle: "MENU",
-                        menu1: "My Response",
-                        menu2: "Job Postings",
-                        menu3: "Announcements"
-                      ),
-                      SizedBox(height: 30,),
-                      TDrawerComponents(
-                        menuTitle: "MENU",
-                        menu1: "My Response",
-                        menu2: "Job Postings",
-                        menu3: "Announcements"
-                      ),
-                    ],
-                  ),
-                  
-                )  
-              ],
-              
-            ),
-        ),
-      ),
+      body: _currentPage,
     );
   }
 }
